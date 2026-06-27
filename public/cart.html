@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drip Kicks | Shopping Bag</title>
+  <meta name="description" content="Review your sneaker items, quantities, and sizes before final checkout.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Navbar injected here by common.js -->
+    <header></header>
+
+    <div class="cart-container">
+      <!-- Items List -->
+      <main>
+        <h2 style="font-family: var(--font-display); margin-bottom: 2rem; font-size: 2rem;">YOUR <span>BAG</span></h2>
+        <div class="cart-items-wrapper" id="cart-items-container">
+          <!-- Items injected here by cart.js -->
+        </div>
+      </main>
+
+      <!-- Order Summary Card -->
+      <aside class="cart-summary">
+        <h3 class="summary-title">ORDER SUMMARY</h3>
+        <div class="summary-row">
+          <span>Subtotal</span>
+          <span id="summary-subtotal">$0.00</span>
+        </div>
+        <div class="summary-row">
+          <span>Shipping</span>
+          <span id="summary-shipping">$0.00</span>
+        </div>
+        <div class="summary-row">
+          <span>Estimated Tax (8%)</span>
+          <span id="summary-tax">$0.00</span>
+        </div>
+        <div class="summary-row total">
+          <span>Total Price</span>
+          <span id="summary-total">$0.00</span>
+        </div>
+        <button class="btn-primary" id="cart-checkout-btn" style="width: 100%; justify-content: center; margin-top: 1.5rem;">PROCEED TO CHECKOUT <i class="fas fa-credit-card"></i></button>
+      </aside>
+    </div>
+
+    <!-- Footer injected here by common.js -->
+    <footer></footer>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>

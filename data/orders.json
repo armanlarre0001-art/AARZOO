@@ -1,0 +1,33 @@
+[
+  {
+    "_id": "075ae55b72d4b999bd4fe16d",
+    "status": "Paid",
+    "isPaid": true,
+    "isDelivered": false,
+    "createdAt": "2026-06-27T05:21:09.904Z",
+    "user": "1fafd5bcfbcb10992538572b",
+    "orderItems": [
+      {
+        "product": "60c72b2f9b1d8a23a4f6d333",
+        "name": "Nike Air Max Plus 'Volt'",
+        "brand": "Nike",
+        "image": "https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=600&q=80",
+        "price": 170,
+        "qty": 1,
+        "size": 9.5,
+        "stock": 12
+      }
+    ],
+    "shippingAddress": {
+      "address": "123456789iuhgv",
+      "city": "ttt",
+      "postalCode": "123456",
+      "country": "ijhbvfdx"
+    },
+    "paymentMethod": "Card",
+    "itemsPrice": 170,
+    "shippingPrice": 15,
+    "totalPrice": 198.6,
+    "paidAt": "2026-06-27T05:21:09.903Z"
+  }
+]

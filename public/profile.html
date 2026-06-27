@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drip Kicks | Customer Profile</title>
+  <meta name="description" content="View your order history, manage your shoe wishlist, and update profile settings.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Navbar injected here by common.js -->
+    <header></header>
+
+    <div class="profile-container">
+      <!-- Profile Navigation Sidebar -->
+      <aside class="profile-sidebar">
+        <div class="profile-card">
+          <div class="profile-avatar" id="user-avatar-initials">U</div>
+          <h3 id="profile-user-name" style="font-family: var(--font-display); font-weight: 700; margin-bottom: 0.25rem;">User Name</h3>
+          <span id="profile-user-email" style="color: var(--text-muted); font-size: 0.85rem;">user@domain.com</span>
+        </div>
+        <div class="profile-menu">
+          <div class="profile-menu-item active" id="menu-wishlist" data-pane="pane-wishlist">
+            <i class="fas fa-heart"></i> My Wishlist
+          </div>
+          <div class="profile-menu-item" id="menu-orders" data-pane="pane-orders">
+            <i class="fas fa-history"></i> Order History
+          </div>
+          <div class="profile-menu-item" id="menu-settings" data-pane="pane-settings">
+            <i class="fas fa-user-edit"></i> Edit Profile
+          </div>
+        </div>
+      </aside>
+
+      <!-- Dynamic Content Area -->
+      <main class="profile-content">
+        <!-- Wishlist Pane -->
+        <section class="content-pane active" id="pane-wishlist">
+          <h2 class="pane-title">MY <span>WISHLIST</span></h2>
+          <div class="products-grid" id="wishlist-items-grid" style="padding: 0;">
+            <!-- Wishlist cards load here -->
+          </div>
+        </section>
+
+        <!-- Orders History Pane -->
+        <section class="content-pane" id="pane-orders">
+          <h2 class="pane-title">ORDER <span>HISTORY</span></h2>
+          <div class="orders-list" id="user-orders-list">
+            <!-- Order history cards load here -->
+          </div>
+        </section>
+
+        <!-- Account Settings Pane -->
+        <section class="content-pane" id="pane-settings">
+          <h2 class="pane-title">ACCOUNT <span>SETTINGS</span></h2>
+          <form id="profile-settings-form" style="max-width: 500px;">
+            <div class="form-group">
+              <label class="form-label" for="settings-name">Full Name</label>
+              <input type="text" id="settings-name" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="settings-email">Email Address</label>
+              <input type="email" id="settings-email" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="settings-password">New Password (leave blank to keep current)</label>
+              <input type="password" id="settings-password" class="form-input" placeholder="••••••••">
+            </div>
+            <button type="submit" class="form-btn">UPDATE PROFILE</button>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <!-- Footer injected here by common.js -->
+    <footer></footer>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

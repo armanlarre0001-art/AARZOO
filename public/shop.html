@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drip Kicks | Shop Collection</title>
+  <meta name="description" content="Browse our exclusive selection of verified authentic sneakers. Filter by brand, category, size, and price.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Navbar injected here by common.js -->
+    <header></header>
+
+    <div class="shop-container">
+      <!-- Sidebar Filters -->
+      <aside class="filters-sidebar">
+        <!-- Brand Filter -->
+        <div class="filter-group">
+          <h3 class="filter-title">BRANDS</h3>
+          <div class="filter-options" id="brand-filters">
+            <label class="filter-checkbox-label">
+              <input type="checkbox" value="Nike"> Nike
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" value="Adidas"> Adidas
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" value="Jordan"> Jordan
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" value="Puma"> Puma
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" value="New Balance"> New Balance
+            </label>
+          </div>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="filter-group">
+          <h3 class="filter-title">CATEGORY</h3>
+          <div class="filter-options" id="category-filters">
+            <label class="filter-checkbox-label">
+              <input type="checkbox" value="Lifestyle"> Lifestyle
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" value="Basketball"> Basketball
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" value="Running"> Running
+            </label>
+          </div>
+        </div>
+
+        <!-- Size Filter -->
+        <div class="filter-group">
+          <h3 class="filter-title">US MEN'S SIZES</h3>
+          <div class="size-selector-grid" id="size-filters">
+            <div class="size-pill" data-size="7">7</div>
+            <div class="size-pill" data-size="8">8</div>
+            <div class="size-pill" data-size="8.5">8.5</div>
+            <div class="size-pill" data-size="9">9</div>
+            <div class="size-pill" data-size="9.5">9.5</div>
+            <div class="size-pill" data-size="10">10</div>
+            <div class="size-pill" data-size="11">11</div>
+            <div class="size-pill" data-size="12">12</div>
+          </div>
+        </div>
+
+        <!-- Price Range Filter -->
+        <div class="filter-group">
+          <h3 class="filter-title">PRICE RANGE</h3>
+          <div class="price-range-inputs">
+            <input type="number" id="price-min" class="price-input" placeholder="Min" min="0">
+            <span style="color: var(--text-muted)">-</span>
+            <input type="number" id="price-max" class="price-input" placeholder="Max" min="0">
+          </div>
+        </div>
+
+        <button class="clear-filters-btn" id="clear-filters-btn">CLEAR FILTERS</button>
+      </aside>
+
+      <!-- Shop Content -->
+      <main>
+        <!-- Search, Sort and Result Count Controls -->
+        <div class="shop-controls">
+          <div class="shop-search">
+            <i class="fas fa-search shop-search-icon"></i>
+            <input type="text" id="search-input" placeholder="Search sneakers, brands, categories...">
+          </div>
+          <div class="shop-sorting">
+            <select id="sort-select">
+              <option value="newest">Newest Arrivals</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="rating">Top Rated</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: 0.95rem;">
+          <div>Showing <span id="results-count" style="color: var(--text-primary); font-weight: bold;">0</span> shoes</div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid" id="shop-products-container" style="padding: 0 0 5rem;">
+          <!-- Loading skeletons -->
+          <div class="product-card skeleton-card">
+            <div class="skeleton skeleton-img"></div>
+            <div class="skeleton skeleton-text" style="width: 40%"></div>
+            <div class="skeleton skeleton-text" style="width: 80%"></div>
+            <div class="skeleton skeleton-text" style="width: 50%"></div>
+          </div>
+          <div class="product-card skeleton-card">
+            <div class="skeleton skeleton-img"></div>
+            <div class="skeleton skeleton-text" style="width: 30%"></div>
+            <div class="skeleton skeleton-text" style="width: 75%"></div>
+            <div class="skeleton skeleton-text" style="width: 60%"></div>
+          </div>
+          <div class="product-card skeleton-card">
+            <div class="skeleton skeleton-img"></div>
+            <div class="skeleton skeleton-text" style="width: 50%"></div>
+            <div class="skeleton skeleton-text" style="width: 70%"></div>
+            <div class="skeleton skeleton-text" style="width: 40%"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Footer injected here by common.js -->
+    <footer></footer>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/shop.js"></script>
+</body>
+</html>

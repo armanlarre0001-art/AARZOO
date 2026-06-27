@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drip Kicks | Premium Sneaker Culture</title>
+  <meta name="description" content="Shop the most exclusive, authentic sneakers and streetwear collection. Direct to your door, fully verified.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Navbar injected here by common.js -->
+    <header></header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+      <div class="hero-background"></div>
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1>STEP INTO THE <span>FUTURE</span></h1>
+          <p>Explore the most exclusive streetwear & sneaker collection. Certified authentic and curated for the boldest fit.</p>
+          <div class="hero-cta">
+            <a href="shop.html" class="btn-primary">SHOP THE DROP <i class="fas fa-arrow-right"></i></a>
+            <button class="btn-secondary" id="hero-explore-btn">NEW ARRIVALS</button>
+          </div>
+        </div>
+        <div class="hero-image-container">
+          <div class="hero-circle"></div>
+          <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=800&q=80" alt="Featured Retro Sneaker" class="hero-shoe-img" id="hero-sneaker-image">
+        </div>
+      </div>
+    </section>
+
+    <!-- Category Showcase -->
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">BROWSE BY <span>CATEGORY</span></h2>
+      </div>
+      <div class="categories-grid">
+        <div class="category-card" onclick="window.location.href='shop.html?category=lifestyle'">
+          <img src="https://images.unsplash.com/photo-1597045566677-8cf032ed6634?auto=format&fit=crop&w=600&q=80" alt="Lifestyle Shoes" class="category-img">
+          <div class="category-content">
+            <h3 class="category-title">Lifestyle</h3>
+            <span class="category-subtitle">Daily streetwear comfort</span>
+          </div>
+        </div>
+        <div class="category-card" onclick="window.location.href='shop.html?category=basketball'">
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80" alt="Basketball Shoes" class="category-img">
+          <div class="category-content">
+            <h3 class="category-title">Basketball</h3>
+            <span class="category-subtitle">Performance on the court</span>
+          </div>
+        </div>
+        <div class="category-card" onclick="window.location.href='shop.html?category=running'">
+          <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=600&q=80" alt="Running Shoes" class="category-img">
+          <div class="category-content">
+            <h3 class="category-title">Running</h3>
+            <span class="category-subtitle">Engineered for speed & style</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">TRENDING <span>NOW</span></h2>
+        <a href="shop.html" class="btn-secondary" style="padding: 0.6rem 1.4rem; font-size: 0.9rem;">VIEW ALL</a>
+      </div>
+      <div class="products-grid" id="featured-products-container">
+        <!-- Skeleton cards render here on load, followed by dynamic sneaker cards -->
+        <div class="product-card skeleton-card">
+          <div class="skeleton skeleton-img"></div>
+          <div class="skeleton skeleton-text" style="width: 40%"></div>
+          <div class="skeleton skeleton-text" style="width: 80%"></div>
+          <div class="skeleton skeleton-text" style="width: 50%"></div>
+        </div>
+        <div class="product-card skeleton-card">
+          <div class="skeleton skeleton-img"></div>
+          <div class="skeleton skeleton-text" style="width: 30%"></div>
+          <div class="skeleton skeleton-text" style="width: 75%"></div>
+          <div class="skeleton skeleton-text" style="width: 60%"></div>
+        </div>
+        <div class="product-card skeleton-card">
+          <div class="skeleton skeleton-img"></div>
+          <div class="skeleton skeleton-text" style="width: 50%"></div>
+          <div class="skeleton skeleton-text" style="width: 70%"></div>
+          <div class="skeleton skeleton-text" style="width: 40%"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- New Arrivals Banner -->
+    <section id="new-arrivals-section">
+      <div class="section-header">
+        <h2 class="section-title">NEW <span>ARRIVALS</span></h2>
+      </div>
+      <div class="products-grid" id="new-arrivals-container">
+        <!-- Skeleton cards render here -->
+        <div class="product-card skeleton-card">
+          <div class="skeleton skeleton-img"></div>
+          <div class="skeleton skeleton-text" style="width: 40%"></div>
+          <div class="skeleton skeleton-text" style="width: 80%"></div>
+          <div class="skeleton skeleton-text" style="width: 50%"></div>
+        </div>
+        <div class="product-card skeleton-card">
+          <div class="skeleton skeleton-img"></div>
+          <div class="skeleton skeleton-text" style="width: 30%"></div>
+          <div class="skeleton skeleton-text" style="width: 75%"></div>
+          <div class="skeleton skeleton-text" style="width: 60%"></div>
+        </div>
+        <div class="product-card skeleton-card">
+          <div class="skeleton skeleton-img"></div>
+          <div class="skeleton skeleton-text" style="width: 50%"></div>
+          <div class="skeleton skeleton-text" style="width: 70%"></div>
+          <div class="skeleton skeleton-text" style="width: 40%"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customer Reviews -->
+    <section>
+      <div class="section-header" style="justify-content: center; text-align: center; flex-direction: column;">
+        <h2 class="section-title">WHAT THE <span>SNEAKERHEADS</span> SAY</h2>
+        <p style="color: var(--text-muted); margin-top: 0.5rem; max-width: 500px;">Real reviews from verified buyers in our global community.</p>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-user">
+            <div class="user-avatar">AM</div>
+            <div class="user-details">
+              <h4>Alex Martinez</h4>
+              <span>Verified Buyer</span>
+            </div>
+          </div>
+          <p class="review-text">"Drip Kicks is hands down the best place to source Jordans. Shipping was fast, boxes were clean, and the sneakers are 100% authentic. Will definitely shop here again."</p>
+        </div>
+        <div class="review-card">
+          <div class="review-user">
+            <div class="user-avatar">SR</div>
+            <div class="user-details">
+              <h4>Sarah Rogers</h4>
+              <span>Verified Buyer</span>
+            </div>
+          </div>
+          <p class="review-text">"Obsessed with the Yeezy Boost I bought last week! The size chart was extremely accurate and customer support helped me trace the courier package easily."</p>
+        </div>
+        <div class="review-card">
+          <div class="review-user">
+            <div class="user-avatar">KD</div>
+            <div class="user-details">
+              <h4>Kevin Durant</h4>
+              <span>Verified Buyer</span>
+            </div>
+          </div>
+          <p class="review-text">"Finding premium court kicks in larger sizes is normally a nightmare. Drip Kicks had plenty of sizes in stock. High-quality materials and super clean shipping."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer injected here by common.js -->
+    <footer></footer>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

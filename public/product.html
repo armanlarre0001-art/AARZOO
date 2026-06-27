@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drip Kicks | Product Details</title>
+  <meta name="description" content="Get full details on pricing, sizes, description and authentic ratings for this premium sneaker.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Navbar injected here by common.js -->
+    <header></header>
+
+    <!-- Main Details Container -->
+    <main class="product-details-container">
+      <!-- Media Gallery -->
+      <div class="gallery-container">
+        <div class="main-image-wrapper">
+          <img id="details-main-img" src="" alt="Sneaker Loader">
+        </div>
+        <div class="thumbnails-row" id="details-thumbnails">
+          <!-- Thumbnails loaded dynamically -->
+        </div>
+      </div>
+
+      <!-- Specs and Actions -->
+      <div class="details-content">
+        <span class="details-brand" id="details-brand">BRAND</span>
+        <h2 id="details-name">Sneaker Model</h2>
+        
+        <div class="rating-row" style="margin-bottom: 1.5rem;">
+          <div class="stars" id="details-stars"></div>
+          <span class="rating-text" id="details-reviews-count">(0 reviews)</span>
+        </div>
+
+        <div class="details-price" id="details-price">$0</div>
+
+        <h3 class="details-desc-title">DESCRIPTION</h3>
+        <p class="details-desc" id="details-desc">Product description goes here.</p>
+
+        <!-- Sizing Selector -->
+        <div class="filter-group" style="border-bottom: none; padding-bottom: 0;">
+          <div class="details-sizes-title">
+            <span>SELECT SIZE (US MEN'S)</span>
+            <span id="selected-size-label" style="color: var(--accent-volt); font-weight: bold;">Select size</span>
+          </div>
+          <div class="size-selector-grid" id="details-sizes">
+            <!-- Dynamic size pills -->
+          </div>
+        </div>
+
+        <!-- Stock Indicator -->
+        <div id="stock-status" style="margin-top: 1.5rem; font-size: 0.95rem; font-weight: 500;">
+          <!-- Stock status alert -->
+        </div>
+
+        <!-- Add to Cart Controls -->
+        <div class="details-actions-row">
+          <div class="qty-selector">
+            <button class="qty-btn" id="qty-minus"><i class="fas fa-minus"></i></button>
+            <span class="qty-val" id="qty-count">1</span>
+            <button class="qty-btn" id="qty-plus"><i class="fas fa-plus"></i></button>
+          </div>
+          <button class="btn-primary details-add-btn" id="add-to-cart-action">ADD TO CART <i class="fas fa-shopping-bag"></i></button>
+          <button class="nav-btn" id="wishlist-action" style="width: 50px; height: 50px;" title="Add to Wishlist">
+            <i class="far fa-heart"></i>
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Recommended Products -->
+    <section>
+      <div class="section-header" style="margin-top: 2rem;">
+        <h2 class="section-title">YOU MAY ALSO <span>LIKE</span></h2>
+      </div>
+      <div class="products-grid" id="recommended-products-container" style="padding-bottom: 5rem;">
+        <!-- Dynamic recommendations -->
+      </div>
+    </section>
+
+    <!-- Footer injected here by common.js -->
+    <footer></footer>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/product.js"></script>
+</body>
+</html>

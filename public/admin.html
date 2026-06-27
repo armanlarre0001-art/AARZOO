@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drip Kicks | Admin Control Panel</title>
+  <meta name="description" content="Manage products, orders, and users inside the Drip Kicks administration console.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Navbar injected here by common.js -->
+    <header></header>
+
+    <div class="admin-container">
+      <div class="admin-header-row">
+        <h2 style="font-family: var(--font-display); font-size: 2.2rem; font-weight: 700;">ADMIN <span>DASHBOARD</span></h2>
+        <button class="btn-primary" id="add-product-btn-trigger"><i class="fas fa-plus"></i> ADD SNEAKER</button>
+      </div>
+
+      <!-- Admin Tab Controls -->
+      <div class="admin-tabs">
+        <div class="admin-tab active" data-pane="admin-products-pane">Products</div>
+        <div class="admin-tab" data-pane="admin-orders-pane">Orders</div>
+        <div class="admin-tab" data-pane="admin-users-pane">Users</div>
+      </div>
+
+      <!-- Tab Content Panes -->
+      <main>
+        <!-- Products Management Pane -->
+        <section class="content-pane active" id="admin-products-pane">
+          <div class="admin-table-container">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Preview</th>
+                  <th>Name</th>
+                  <th>Brand</th>
+                  <th>Category</th>
+                  <th>Price</th>
+                  <th>Stock</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-products-table-body">
+                <!-- Products dynamically loaded -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Orders Management Pane -->
+        <section class="content-pane" id="admin-orders-pane">
+          <div class="admin-table-container">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Date</th>
+                  <th>Shipping Address</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-orders-table-body">
+                <!-- Orders dynamically loaded -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Users Management Pane -->
+        <section class="content-pane" id="admin-users-pane">
+          <div class="admin-table-container">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>User ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Joined Date</th>
+                </tr>
+              </thead>
+              <tbody id="admin-users-table-body">
+                <!-- Users dynamically loaded -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Product Form Modal (Add / Edit) -->
+    <div id="product-form-modal" class="modal">
+      <div class="modal-content" style="max-width: 600px;">
+        <div class="modal-close" id="product-form-modal-close">&times;</div>
+        <h2 class="modal-title" id="product-modal-title">Add Sneaker</h2>
+        <p class="modal-subtitle" id="product-modal-subtitle">Enter details for the Drip Kicks collection</p>
+        
+        <form id="product-upsert-form" style="max-height: 480px; overflow-y: auto; padding-right: 0.5rem;">
+          <input type="hidden" id="edit-product-id">
+          
+          <div class="form-group">
+            <label class="form-label" for="prod-name">Sneaker Model Name</label>
+            <input type="text" id="prod-name" class="form-input" required placeholder="Air Force 1 '07">
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label" for="prod-brand">Brand</label>
+              <select id="prod-brand" class="form-input" required style="background: var(--bg-primary);">
+                <option value="Nike">Nike</option>
+                <option value="Adidas">Adidas</option>
+                <option value="Jordan">Jordan</option>
+                <option value="Puma">Puma</option>
+                <option value="New Balance">New Balance</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="prod-category">Category</label>
+              <select id="prod-category" class="form-input" required style="background: var(--bg-primary);">
+                <option value="Lifestyle">Lifestyle</option>
+                <option value="Basketball">Basketball</option>
+                <option value="Running">Running</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label" for="prod-price">Price ($)</label>
+              <input type="number" id="prod-price" class="form-input" required placeholder="150" min="0">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="prod-stock">Stock Quantity</label>
+              <input type="number" id="prod-stock" class="form-input" required placeholder="10" min="0">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="prod-sizes">Sizes (comma separated list)</label>
+            <input type="text" id="prod-sizes" class="form-input" required placeholder="8, 9, 10, 11, 12">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="prod-images">Image URLs (comma separated, list of URLs)</label>
+            <input type="text" id="prod-images" class="form-input" required placeholder="https://images.unsplash.com/photo-..., https://...">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="prod-desc">Product Description</label>
+            <textarea id="prod-desc" class="form-input" rows="3" required placeholder="Enter description details..."></textarea>
+          </div>
+
+          <div style="display: flex; gap: 2rem; margin: 1rem 0;">
+            <label class="filter-checkbox-label">
+              <input type="checkbox" id="prod-featured"> Featured Sneaker
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" id="prod-newarrival"> New Arrival
+            </label>
+          </div>
+
+          <button type="submit" class="form-btn" id="product-form-submit-btn">SAVE SNEAKER</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer injected here by common.js -->
+    <footer></footer>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

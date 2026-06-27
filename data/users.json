@@ -1,0 +1,20 @@
+[
+  {
+    "_id": "60c72b2f9b1d8a23a4f6d000",
+    "name": "Drip Admin",
+    "email": "admin@dripkicks.com",
+    "password": "$2a$10$J.zRekfRS1i5I3i/HfmvAeDa7Rh.plj1ouDB98j9zB7GhptMkK9TS",
+    "role": "admin",
+    "wishlist": [],
+    "createdAt": "2026-06-27T05:13:54.957Z"
+  },
+  {
+    "_id": "1fafd5bcfbcb10992538572b",
+    "wishlist": [],
+    "createdAt": "2026-06-27T05:19:37.221Z",
+    "name": "test",
+    "email": "test@test.com",
+    "password": "$2a$10$kUw5KiZtwiN/b1ALXRxoquHa5r5DhcE260lDUW/lMX/CR3WcioqXW",
+    "role": "user"
+  }
+]
