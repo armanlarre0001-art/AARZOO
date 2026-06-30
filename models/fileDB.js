@@ -4,15 +4,32 @@ const bcrypt = require('bcryptjs');
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
 
+const memoryDb = {};
+
 // Helper to ensure files and directory exist
 function initFileStore(filename, defaultData = []) {
-  if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR, { recursive: true });
-  }
   const filePath = path.join(DATA_DIR, filename);
-  if (!fs.existsSync(filePath)) {
-    fs.writeFileSync(filePath, JSON.stringify(defaultData, null, 2), 'utf-8');
+  memoryDb[filePath] = defaultData;
+
+  if (!fs.existsSync(DATA_DIR)) {
+    try {
+      fs.mkdirSync(DATA_DIR, { recursive: true });
+    } catch (e) {
+      console.warn(`[WARNING] Failed to create data directory ${DATA_DIR}: ${e.message}`);
+    }
   }
+
+  try {
+    if (!fs.existsSync(filePath)) {
+      fs.writeFileSync(filePath, JSON.stringify(defaultData, null, 2), 'utf-8');
+    } else {
+      const content = fs.readFileSync(filePath, 'utf-8');
+      memoryDb[filePath] = JSON.parse(content);
+    }
+  } catch (e) {
+    console.warn(`[WARNING] Failed to initialize file store at ${filePath}: ${e.message}. Using in-memory fallback.`);
+  }
+
   return filePath;
 }
 
@@ -146,16 +163,27 @@ const defaultProducts = [
 
 // Helper to read and write files synchronously to avoid race conditions during mock db updates
 function readJSON(filePath) {
+  if (memoryDb[filePath] !== undefined) {
+    return memoryDb[filePath];
+  }
   try {
     const content = fs.readFileSync(filePath, 'utf-8');
-    return JSON.parse(content);
+    const data = JSON.parse(content);
+    memoryDb[filePath] = data;
+    return data;
   } catch (e) {
     return [];
   }
 }
 
+// Attempt to write to file, fallback to memory cache on failure
 function writeJSON(filePath, data) {
-  fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8');
+  memoryDb[filePath] = data;
+  try {
+    fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8');
+  } catch (e) {
+    console.warn(`[WARNING] Failed to write to file ${filePath}: ${e.message}. Using in-memory fallback.`);
+  }
 }
 
 const usersFile = initFileStore('users.json', []);
